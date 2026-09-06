@@ -3,6 +3,7 @@ using System.Linq;
 using NUnit.Framework;
 using SphereCorridor.Foundation;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine.InputSystem;
 
 namespace SphereCorridor.Tests.EditMode
@@ -42,8 +43,22 @@ namespace SphereCorridor.Tests.EditMode
                 .Select(scene => scene.path)
                 .ToArray();
 
-            Assert.That(actualPaths, Is.EqualTo(SceneIds.GetBuildScenePaths()));
+            string[] canonicalPaths = SceneIds.GetBuildScenePaths();
+            Assert.That(actualPaths.Take(canonicalPaths.Length), Is.EqualTo(canonicalPaths));
             AppLog.Development("Tests", "Build scene order is canonical.");
+        }
+
+        /// <summary>
+        /// Verifies that pressing Play while authoring Gameplay still enters through
+        /// the application Bootstrap and therefore displays the Main Menu first.
+        /// </summary>
+        [Test]
+        public void EditorPlayModeStartsFromBootstrap()
+        {
+            string playStartPath = AssetDatabase.GetAssetPath(EditorSceneManager.playModeStartScene);
+
+            Assert.That(playStartPath, Is.EqualTo(SceneIds.BootstrapPath));
+            AppLog.Development("Tests", "Editor Play Mode start scene is Bootstrap.");
         }
 
         /// <summary>
@@ -56,6 +71,7 @@ namespace SphereCorridor.Tests.EditMode
             Assert.That(inputAsset, Is.Not.Null, $"Input action asset is missing: {InputActionsPath}");
 
             Assert.That(inputAsset.FindAction("Player/MoveHorizontal"), Is.Not.Null);
+            Assert.That(inputAsset.FindAction("Player/MoveLateral"), Is.Not.Null);
             Assert.That(inputAsset.FindAction("Player/Jump"), Is.Not.Null);
             Assert.That(inputAsset.FindAction("Player/Fire"), Is.Not.Null);
             Assert.That(inputAsset.FindAction("Player/Interact"), Is.Not.Null);
@@ -63,6 +79,44 @@ namespace SphereCorridor.Tests.EditMode
             Assert.That(inputAsset.FindActionMap("UI"), Is.Not.Null);
 
             AppLog.Development("Tests", "Required input maps and actions exist.");
+        }
+
+        /// <summary>
+        /// Protects the intended keyboard and Xbox-style controller layout. Testing
+        /// binding paths here catches accidental Input Actions editor changes without
+        /// coupling gameplay code to a particular device.
+        /// </summary>
+        [Test]
+        public void PlayerActionsContainKeyboardAndGamepadBindings()
+        {
+            InputActionAsset inputAsset = AssetDatabase.LoadAssetAtPath<InputActionAsset>(InputActionsPath);
+            Assert.That(inputAsset, Is.Not.Null, $"Input action asset is missing: {InputActionsPath}");
+
+            AssertBinding(inputAsset, "Player/MoveHorizontal", "<Keyboard>/upArrow");
+            AssertBinding(inputAsset, "Player/MoveHorizontal", "<Keyboard>/downArrow");
+            AssertBinding(inputAsset, "Player/MoveHorizontal", "<Gamepad>/leftStick/y");
+            AssertBinding(inputAsset, "Player/MoveLateral", "<Keyboard>/leftArrow");
+            AssertBinding(inputAsset, "Player/MoveLateral", "<Keyboard>/rightArrow");
+            AssertBinding(inputAsset, "Player/MoveLateral", "<Gamepad>/leftStick/x");
+            AssertBinding(inputAsset, "Player/Jump", "<Gamepad>/buttonSouth");
+            AssertBinding(inputAsset, "Player/Fire", "<Gamepad>/buttonWest");
+            AssertBinding(inputAsset, "Player/Fire", "<Gamepad>/rightShoulder");
+
+            AppLog.Development("Tests", "Keyboard and gamepad bindings are present.");
+        }
+
+        /// <summary>
+        /// Gives binding-test failures the missing action and control path instead of
+        /// a generic collection mismatch, shortening diagnosis in Unity's Test Runner.
+        /// </summary>
+        private static void AssertBinding(InputActionAsset inputAsset, string actionPath, string controlPath)
+        {
+            InputAction action = inputAsset.FindAction(actionPath, throwIfNotFound: false);
+            Assert.That(action, Is.Not.Null, $"Input action is missing: {actionPath}");
+            Assert.That(
+                action.bindings.Any(binding => binding.path == controlPath),
+                Is.True,
+                $"Action '{actionPath}' is missing binding '{controlPath}'.");
         }
 
         /// <summary>

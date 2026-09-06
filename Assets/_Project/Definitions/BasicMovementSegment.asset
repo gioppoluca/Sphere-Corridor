@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2aa13d79805833a48a95a198b516d787, type: 3}
+  m_Name: BasicMovementSegment
+  m_EditorClassIdentifier: SphereCorridor.Runtime::SphereCorridor.Corridor.CorridorSegmentDefinition
+  segmentId: movement_training
+  length: 40
+  prefab: {fileID: 1528875980870426878, guid: 3deb83a81d6a8dc4d91c76c1ad63e635, type: 3}
+  blueprint: {fileID: 11400000, guid: 37b5a401495324e4180e3fd818a1248a, type: 2}
+  entryProfile:
+    profileId: standard
+    width: 12
+    floorElevation: 0
+    permittedTransitionClasses:
+    - standard
+  exitProfile:
+    profileId: standard
+    width: 12
+    floorElevation: 0
+    permittedTransitionClasses:
+    - standard
+  challenge:
+    movement: 0
+    combat: 0
+    speed: 0
+    environment: 0
+    resource: 0
+  tags:
+  - movement
+  - combat_training
+  sockets: []
+  minimumTier: 0
+  maximumTier: 3
+  selectionWeight: 1
+  requiredUnlocks: []
+  minimumAppearances: 0
+  maximumAppearances: 0
+  cooldownSegments: 0
+  allowedFollowingSegmentIds: []
+  prohibitedFollowingSegmentIds: []
+  adjacencyExclusions: []

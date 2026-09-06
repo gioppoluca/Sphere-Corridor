@@ -92,9 +92,10 @@ namespace SphereCorridor.Editor
                 .Select(scene => scene.path)
                 .ToArray();
 
-            if (!expectedBuildScenes.SequenceEqual(actualBuildScenes))
+            if (actualBuildScenes.Length < expectedBuildScenes.Length ||
+                !expectedBuildScenes.SequenceEqual(actualBuildScenes.Take(expectedBuildScenes.Length)))
             {
-                failures.Add("Enabled Build Settings scenes do not match Bootstrap, MainMenu, Gameplay order.");
+                failures.Add("Enabled Build Settings scenes must begin with Bootstrap, MainMenu, Gameplay.");
             }
 
             if (EditorSettings.serializationMode != SerializationMode.ForceText)

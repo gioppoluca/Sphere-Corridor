@@ -2,7 +2,8 @@
     "name": "SphereCorridor.Editor",
     "rootNamespace": "SphereCorridor.Editor",
     "references": [
-        "SphereCorridor.Runtime"
+        "SphereCorridor.Runtime",
+        "Unity.InputSystem"
     ],
     "includePlatforms": [
         "Editor"

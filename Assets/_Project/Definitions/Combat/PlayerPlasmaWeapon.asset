@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdc0712776747854096b518783119c17, type: 3}
+  m_Name: PlayerPlasmaWeapon
+  m_EditorClassIdentifier: SphereCorridor.Runtime::SphereCorridor.Combat.WeaponDefinition
+  stableId: player_plasma_pulse
+  damageType: {fileID: 11400000, guid: e0dc00d5cb090ba449fe315a6e4ba6d2, type: 2}
+  damage: 1
+  fireMode: 2
+  fireInterval: 0.25
+  burstShotCount: 3
+  burstShotInterval: 0.08
+  projectilePrefab: {fileID: 917769997302060220, guid: 997a55ee1c972eb46bb63b80224b7df5, type: 3}
+  trajectory: {fileID: 11400000, guid: 23c40574b3964744685c61c5bc327746, type: 2}
+  projectileSpeed: 24
+  projectileLifetime: 2

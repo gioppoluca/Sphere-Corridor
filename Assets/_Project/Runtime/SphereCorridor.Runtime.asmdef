@@ -1,7 +1,9 @@
 {
     "name": "SphereCorridor.Runtime",
     "rootNamespace": "SphereCorridor",
-    "references": [],
+    "references": [
+        "Unity.InputSystem"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

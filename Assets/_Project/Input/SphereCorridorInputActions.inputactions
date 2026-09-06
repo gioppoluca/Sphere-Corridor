@@ -15,6 +15,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "MoveLateral",
+                    "type": "Value",
+                    "id": "9613d4e6-a53d-4d79-a4ed-52bd54e70987",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "Jump",
                     "type": "Button",
                     "id": "3058dc97-6068-47ef-ae88-ad7008936d42",
@@ -66,7 +75,7 @@
                 {
                     "name": "negative",
                     "id": "b0272124-441d-4d50-aed4-c630ee23bc76",
-                    "path": "<Keyboard>/a",
+                    "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -77,7 +86,7 @@
                 {
                     "name": "negative",
                     "id": "3d9fe0be-06ea-4427-a450-4c3b5066b51c",
-                    "path": "<Keyboard>/leftArrow",
+                    "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -88,7 +97,7 @@
                 {
                     "name": "positive",
                     "id": "27cfb5ca-486b-463f-aae3-fd3b72b4342f",
-                    "path": "<Keyboard>/d",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -99,7 +108,7 @@
                 {
                     "name": "positive",
                     "id": "d7cb9557-c55a-480a-87a6-96489bdf06d3",
-                    "path": "<Keyboard>/rightArrow",
+                    "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -142,12 +151,78 @@
                 },
                 {
                     "name": "",
+                    "id": "25dd1d95-4a8a-43fa-b6ec-a39d3c21a283",
+                    "path": "<Gamepad>/leftStick/y",
+                    "interactions": "",
+                    "processors": "axisDeadzone",
+                    "groups": "Gamepad",
+                    "action": "MoveHorizontal",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Keyboard",
+                    "id": "5c1c62ee-c0ee-42fd-adf1-8cbce0a47523",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveLateral",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "cf75997a-d6c3-48ef-87db-f9f2b5ff908d",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "MoveLateral",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "negative",
+                    "id": "0dff560d-bfb4-4db6-aa2e-521111e85291",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "MoveLateral",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "d0f59194-62dd-4d11-8e94-9e37cde31293",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "MoveLateral",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "2ca62577-a9ae-49a8-805a-b45f0804544d",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "MoveLateral",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
                     "id": "1d9c15a1-20b8-45ac-a792-e285519a778e",
                     "path": "<Gamepad>/leftStick/x",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "MoveHorizontal",
+                    "action": "MoveLateral",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -208,6 +283,17 @@
                 },
                 {
                     "name": "",
+                    "id": "432c62cc-7acc-4ae1-a909-d247247f4f10",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "2b01c65f-8089-4fb1-af25-0b178bff4b10",
                     "path": "<Keyboard>/e",
                     "interactions": "",
@@ -220,7 +306,7 @@
                 {
                     "name": "",
                     "id": "fc27e36c-9d53-42b4-8344-629b194a25a1",
-                    "path": "<Gamepad>/buttonWest",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",

@@ -3,7 +3,7 @@ using UnityEngine;
 namespace SphereCorridor.Foundation
 {
     /// <summary>
-    /// Draws a temporary dependency-free M0 menu used only to prove scene flow.
+    /// Draws the dependency-free development menu used to enter the current lab.
     /// A designed UI will replace this diagnostic presenter in a later milestone.
     /// </summary>
     public sealed class FoundationMainMenu : MonoBehaviour
@@ -24,10 +24,10 @@ namespace SphereCorridor.Foundation
 
             GUILayout.BeginArea(panel, GUI.skin.box);
             GUILayout.Space(16f);
-            GUILayout.Label("SPHERE CORRIDOR — M0 FOUNDATION", GUI.skin.label);
+            GUILayout.Label("SPHERE CORRIDOR — DEVELOPMENT LAB", GUI.skin.label);
             GUILayout.Space(16f);
 
-            if (GUILayout.Button("Open Gameplay Sandbox", GUILayout.Height(48f)))
+            if (GUILayout.Button("Start M2.1 Grid Combat Lab", GUILayout.Height(48f)))
             {
                 RequestGameplay();
             }

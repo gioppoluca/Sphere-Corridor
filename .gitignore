@@ -23,6 +23,10 @@
 /[Uu]ser[Ss]ettings/
 *.log
 
+# Project snapshots are transfer artifacts, not Unity source files. Keep them
+# outside the repository so they cannot accidentally consume Git/LFS storage.
+/*.zip
+
 # By default unity supports Blender asset imports, *.blend1 blender files do not need to be commited to version control.
 *.blend1
 *.blend1.meta

@@ -1,0 +1,22 @@
+{
+    "name": "SphereCorridor.Tests.EditMode",
+    "rootNamespace": "SphereCorridor.Tests.EditMode",
+    "references": [
+        "SphereCorridor.Runtime",
+        "Unity.InputSystem"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false,
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ]
+}
